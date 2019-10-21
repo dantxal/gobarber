@@ -10,7 +10,7 @@ import {
   isEqual,
   parseISO,
 } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
 import { utcToZonedTime } from 'date-fns-tz';
 import { MdChevronRight, MdChevronLeft } from 'react-icons/md';
 import api from '~/services/api';
@@ -23,10 +23,9 @@ export default function Dashboard() {
   const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
 
-  const dateFormatted = useMemo(
-    () => format(date, "d 'de' MMMM", { locale: pt }),
-    [date]
-  );
+  const dateFormatted = useMemo(() => format(date, 'MMMM do', { locale: en }), [
+    date,
+  ]);
 
   useEffect(() => {
     async function loadSchedule() {
@@ -77,7 +76,7 @@ export default function Dashboard() {
           <Time key={time.time} past={time.past} available={!time.appointment}>
             <strong>{time.time}</strong>
             <span>
-              {time.appointment ? time.appointment.user.name : 'Em aberto'}
+              {time.appointment ? time.appointment.user.name : 'Open'}
             </span>
           </Time>
         ))}

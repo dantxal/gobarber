@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MdNotifications } from 'react-icons/md';
 import { parseISO, formatDistance } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
 
 import api from '~/services/api';
 
@@ -31,7 +31,7 @@ export default function Notifications() {
         timeDistance: formatDistance(
           parseISO(notification.createdAt),
           new Date(),
-          { addSuffix: true, locale: pt }
+          { addSuffix: true, locale: en }
         ),
       }));
 
@@ -42,7 +42,6 @@ export default function Notifications() {
   }, []);
 
   async function handleMarkAsRead(id) {
-    console.tron.log(`marcar como lida ${id}`);
     await api.put(`notifications/${id}`);
 
     setNotifications(
@@ -74,7 +73,7 @@ export default function Notifications() {
                   onClick={() => handleMarkAsRead(notification._id)}
                 >
                   {' '}
-                  Marcar como lida
+                  Mark as read
                 </button>
               )}
             </Notification>

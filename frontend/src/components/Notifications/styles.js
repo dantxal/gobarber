@@ -27,16 +27,15 @@ export const Badge = styled.button`
 `;
 
 export const NotificationList = styled.div`
-  display: ${props => (props.visible ? 'block' : 'none')}
-
+  display: ${props => (props.visible ? 'block' : 'none')};
+  z-index: 10;
   position: absolute;
   width: 260px;
   left: calc(50% - 130px);
   top: calc(100% + 30px);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   padding: 15px 5px;
-
 
   &::before {
     content: '';
@@ -47,7 +46,7 @@ export const NotificationList = styled.div`
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 20px solid rgba(0, 0, 0, 0.9);
   }
 `;
 

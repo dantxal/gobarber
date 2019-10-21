@@ -17,7 +17,7 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (!user.provider) {
-      toast.error('Usuário não é prestador.');
+      toast.error('User is not a provider.');
       return;
     }
 
@@ -27,14 +27,13 @@ export function* signIn({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Falha na autenticação. Verifique seus dados.');
+    toast.error('Authentication failed. Verify your data.');
     yield put(signFailure());
   }
 }
 
 export function* signUp({ payload }) {
   try {
-    console.tron.log('inside saga signup');
     const { name, email, password } = payload;
 
     yield call(api.post, 'users', {
@@ -45,8 +44,9 @@ export function* signUp({ payload }) {
     });
 
     history.push('/');
+    toast.success('Account successfully created!');
   } catch (err) {
-    toast.error('Falha no cadastro, verifique seus dados!');
+    toast.error('Something went wrong, please verify your data.');
 
     yield put(signFailure());
   }
