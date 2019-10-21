@@ -44,7 +44,7 @@ export default (isSigned = false) =>
               ),
               navigationOptions: {
                 tabBarVisible: false,
-                tabBarLabel: 'Agendar',
+                tabBarLabel: 'New appointment',
                 tabBarIcon: (
                   <Icon
                     name="add-circle-outline"

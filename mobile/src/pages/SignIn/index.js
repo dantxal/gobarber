@@ -40,7 +40,7 @@ export default function SignIn({ navigation }) {
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Digite seu e-mail"
+            placeholder="E-mail"
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
             onChangeText={setEmail}
@@ -48,7 +48,7 @@ export default function SignIn({ navigation }) {
           <FormInput
             icon="lock-outline"
             secureTextEntry
-            placeholder="Digite sua senha secreta"
+            placeholder="Secret password"
             ref={passwordRef}
             returnKeyType="send"
             onSubmitEditing={handleSubmit}
@@ -56,12 +56,12 @@ export default function SignIn({ navigation }) {
           />
 
           <SubmitButton onPress={handleSubmit} loading={loading}>
-            Acessar
+            Log in
           </SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignUp')}>
-          <SignLinkText>Criar conta gratuita</SignLinkText>
+          <SignLinkText>Create free account</SignLinkText>
         </SignLink>
       </Container>
     </Background>

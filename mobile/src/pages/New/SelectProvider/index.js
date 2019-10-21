@@ -53,7 +53,7 @@ export default function SelectProvider({ navigation }) {
 }
 
 SelectProvider.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione o prestador',
+  title: 'Select provider',
   headerLeft: () => (
     <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
       <Icon name="chevron-left" size={20} color="#fff" />

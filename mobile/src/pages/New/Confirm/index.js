@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { formatRelative, parseISO } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, Avatar, Name, Time, SubmitButton } from './styles';
 
@@ -17,7 +17,7 @@ export default function Confirm({ navigation }) {
   }
 
   const dateFormatted = useMemo(
-    () => formatRelative(parseISO(time), new Date(), { locale: pt }),
+    () => formatRelative(parseISO(time), new Date(), { locale: en }),
     [time],
   );
 
@@ -43,7 +43,7 @@ export default function Confirm({ navigation }) {
         <Name>{provider.name}</Name>
         <Time>{dateFormatted}</Time>
         <SubmitButton onPress={handleAddAppointment}>
-          Confirmar agendamento
+          Confirm appointment
         </SubmitButton>
       </Container>
     </Background>
@@ -51,7 +51,7 @@ export default function Confirm({ navigation }) {
 }
 
 Confirm.navigationOptions = ({ navigation }) => ({
-  title: 'Confirmar agendamento',
+  title: 'Confirm appointment',
   headerLeft: () => (
     <TouchableOpacity onPress={() => navigation.goBack()}>
       <Icon name="chevron-left" size={20} color="#fff" />

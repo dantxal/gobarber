@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { format } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
 import { DatePickerAndroid } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -9,7 +9,7 @@ import { Container, DateButton, DateText, Picker } from './styles';
 
 export default function DateInput({ date, onChange }) {
   const dateFormatted = useMemo(
-    () => format(date, "dd 'de' MMMM 'de' yyyy", { locale: pt }),
+    () => format(date, 'MMMM do, yyyy', { locale: en }),
     [date],
   );
 

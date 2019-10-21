@@ -42,7 +42,7 @@ export default function SignUp({ navigation }) {
             icon="person-outline"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Nome completo"
+            placeholder="Full name"
             returnKeyType="next"
             onSubmitEditing={() => emailRef.current.focus()}
             value={name}
@@ -53,7 +53,7 @@ export default function SignUp({ navigation }) {
             keyboardType="email-address"
             autoCorrect={false}
             autoCapitalize="none"
-            placeholder="Digite seu e-mail"
+            placeholder="E-mail"
             ref={emailRef}
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
@@ -63,7 +63,7 @@ export default function SignUp({ navigation }) {
           <FormInput
             icon="lock-outline"
             secureTextEntry
-            placeholder="Digite sua senha secreta"
+            placeholder="Password"
             ref={passwordRef}
             onSubmitEditing={handleSubmit}
             value={password}
@@ -71,12 +71,12 @@ export default function SignUp({ navigation }) {
           />
 
           <SubmitButton onPress={handleSubmit} loading={loading}>
-            Criar conta
+            Create account
           </SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.navigate('SignIn')}>
-          <SignLinkText>Já tenho uma conta</SignLinkText>
+          <SignLinkText>I already have an account.</SignLinkText>
         </SignLink>
       </Container>
     </Background>

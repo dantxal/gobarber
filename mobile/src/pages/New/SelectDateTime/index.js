@@ -21,12 +21,11 @@ export default function SelectDateTime({ navigation }) {
         params: {
           date: date.getTime(),
         },
-        
       });
 
-      console.tron.log(response.data);
+      console.tron.log('available', response);
 
-      setHours(response.data.date);
+      setHours(response.data);
     }
     loadAvailable();
   }, [date, provider.id]);
@@ -61,7 +60,7 @@ export default function SelectDateTime({ navigation }) {
 }
 
 SelectDateTime.navigationOptions = ({ navigation }) => ({
-  title: 'Selecione o horário',
+  title: 'Select the time',
   headerLeft: () => (
     <TouchableOpacity onPress={() => navigation.goBack()}>
       <Icon name="chevron-left" size={20} color="#fff" />
