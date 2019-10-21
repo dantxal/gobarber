@@ -1,5 +1,5 @@
 import { format, startOfHour, parseISO, isBefore } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+import en from 'date-fns/locale/en-US';
 
 import User from '../models/User';
 import Appointment from '../models/Appointment';
@@ -59,14 +59,12 @@ class CreateAppointmentService {
      * Notify appointment provider
      */
     const user = await User.findByPk(user_id);
-    const formattedDate = format(
-      hourStart,
-      "'dia' dd 'de' MMMM', às' H:mm'h'",
-      { locale: pt }
-    );
+    const formattedDate = format(hourStart, "MMMM do', at' p", {
+      locale: en,
+    });
 
     await Notification.create({
-      content: `Novo agendamento de ${user.name} para ${formattedDate}`,
+      content: `New appointment with ${user.name} on ${formattedDate}`,
       user: provider_id,
     });
 
